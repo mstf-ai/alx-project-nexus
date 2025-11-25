@@ -27,7 +27,6 @@ ORM	Prisma ORM
 Authentication	JWT
 Environment Config	dotenv
 API Testing	Thunder Client / Postman
----
 Project Structure
 project/
 │── src/
@@ -45,7 +44,7 @@ project/
 ├── .env
 ├── package.json
 └── README.md
----
+
 Installation & Setup
 1. Clone the repo
 git clone https://github.com/<your-username>/booking-system.git
@@ -64,7 +63,7 @@ npx prisma migrate dev --name init
 
 5. Start the server
 npm start
----
+
 API Endpoints
 Auth
 Method	Endpoint	Description
@@ -85,7 +84,7 @@ DELETE	/api/bookings/:id	Cancel a booking
 Double Booking Prevention
 
 The system prevents booking a room during already reserved dates using server-side date validation before creating a booking.
----
+
 Example Booking Request
 POST /api/bookings
 Content-Type: application/json
