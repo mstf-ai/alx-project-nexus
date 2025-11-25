@@ -1,252 +1,130 @@
-\# Project Nexus — Backend Engineering Documentation
+# 🛒 Nexus Commerce — Backend API  
+Advanced E-Commerce Backend for Project Nexus (ProDev Backend Engineering)
 
+Nexus Commerce is a fully-featured **E-Commerce Backend API** built as the final project of the **ALX ProDev Backend Engineering Program**, demonstrating advanced backend skills, scalable architecture, and industry-standard patterns.
 
-
-Welcome to \*\*Project Nexus\*\*, a comprehensive documentation hub capturing the most important learnings, concepts, tools, and best practices from the \*\*ProDev Backend Engineering Program\*\*.  
-
-This repository serves as both a personal knowledge base and a collaboration bridge between \*\*Backend\*\* and \*\*Frontend\*\* ProDev learners.
-
-
+This project showcases real-world backend engineering practices including database modeling, REST API design, authentication, caching, background processing, documentation, and testing.
 
 ---
 
+## 🚀 Project Overview
 
+Nexus Commerce provides the backend infrastructure for a modern E-Commerce platform, including:
 
-\## 📘 About the ProDev Backend Engineering Program
+- User authentication & authorization  
+- Product & category management  
+- Inventory & stock control  
+- Cart & checkout system  
+- Orders & order items  
+- Ratings & reviews  
+- Caching with Redis  
+- Optimized PostgreSQL database  
+- Background tasks (emails, reports, notifications)  
+- Comprehensive API documentation  
 
-
-
-The ProDev Backend track provides hands-on training in backend development through real-world projects, modern tools, and engineering best practices.  
-
-The program focuses on designing scalable systems, building robust APIs, managing data efficiently, and following industry-standard development workflows.
-
-
-
----
-
-
-
-\## 🚀 Major Learnings
-
-
-
-\### 🧰 \*\*Key Technologies Covered\*\*
-
-
-
-\- \*\*Python\*\*
-
-\- \*\*Django \& Django REST Framework\*\*
-
-\- \*\*RESTful API Development\*\*
-
-\- \*\*GraphQL APIs\*\*
-
-\- \*\*Docker \& Containerization\*\*
-
-\- \*\*CI/CD Pipelines (GitHub Actions)\*\*
-
-\- \*\*Celery \& RabbitMQ\*\*
-
-\- \*\*Unit Testing \& Integration Testing\*\*
-
-\- \*\*PostgreSQL, Redis\*\*
-
-\- \*\*System Design Fundamentals\*\*
-
-
+The project emphasizes **clean architecture**, **scalable database design**, and **professional workflows** expected from a production-grade backend system.
 
 ---
 
+## 🏗️ Tech Stack
 
-
-\## 🧠 \*\*Important Backend Concepts\*\*
-
-
-
-\### 🗄️ Database Design
-
-\- Normalization vs denormalization  
-
-\- ERD modeling  
-
-\- Managing relationships (One-to-One, One-to-Many, Many-to-Many)
-
-
-
-\### ⚡ Asynchronous Programming
-
-\- Async views in Django  
-
-\- Async I/O with Python  
-
-\- Background jobs with Celery + RabbitMQ
-
-
-
-\### 🚀 API Architecture
-
-\- REST API patterns  
-
-\- GraphQL schemas, queries, mutations  
-
-\- Authentication: JWT, Token-based auth  
-
-\- Versioning, pagination, rate limiting
-
-
-
-\### 📦 Caching Strategies
-
-\- Redis caching  
-
-\- Query optimization  
-
-\- Cache invalidation strategies (write-through, write-back, TTL)
-
-
+| Layer | Technology |
+|------|------------|
+| Backend Framework | Django + Django REST Framework |
+| Database | PostgreSQL |
+| Caching | Redis |
+| Background Jobs | Celery + RabbitMQ |
+| Containerization | Docker & Docker Compose |
+| Authentication | JWT Authentication |
+| API Documentation | Swagger / Postman Collection |
+| Testing | Django Test Framework + Pytest |
 
 ---
 
+## 🗄️ Database Design (ERD)
 
+The Entity Relationship Diagram (ERD) models all major entities and relationships in the system, including:
 
-\## 🧩 \*\*Challenges Faced \& Solutions\*\*
+- Users  
+- Products  
+- Categories  
+- Product Variants  
+- Inventory  
+- Cart & Cart Items  
+- Orders & Order Items  
+- Reviews  
 
-
-
-\### \*\*1. Slow API Response Times\*\*
-
-\*\*Cause:\*\* Heavy DB queries  
-
-\*\*Solution:\*\* Introduced Redis caching + optimized queries using `select\_related` \& `prefetch\_related`.
-
-
-
-\### \*\*2. Long-running Tasks Blocking Requests\*\*
-
-\*\*Cause:\*\* CPU-heavy background job  
-
-\*\*Solution:\*\* Implemented \*\*Celery workers\*\* with \*\*RabbitMQ\*\* to offload tasks.
-
-
-
-\### \*\*3. Deployment Issues with Local Environments\*\*
-
-\*\*Cause:\*\* Different OS setups  
-
-\*\*Solution:\*\* Used \*\*Docker Compose\*\* to create a consistent development environment.
-
-
-
-\### \*\*4. API Integration Problems\*\*
-
-\*\*Cause:\*\* Inconsistent request/response formats  
-
-\*\*Solution:\*\* Applied API versioning + standardized JSON responses.
-
-
+📌 **Google Doc containing the ERD:**  
+👉 *[Insert your Google Doc link here]*
 
 ---
 
+## 📦 Core Features
 
+### 🔐 **Authentication & User Management**
+- JWT-based login and registration  
+- Roles & permissions (Admin / Customer)  
+- Profile management  
 
-\## 🏆 \*\*Best Practices \& Personal Takeaways\*\*
+### 🛍️ **Product & Category Management**
+- CRUD operations for products  
+- Hierarchical categories  
+- Product variants (size, color, etc.)  
+- Rich product metadata  
 
+### 📦 **Inventory System**
+- Track stock levels  
+- Low-stock notifications  
+- Automatic stock reduction on order placement  
 
+### 🛒 **Cart System**
+- Add/remove items  
+- Update quantities  
+- Cart merging  
+- Automatic price calculations  
 
-\- Always document your API using Swagger or Postman Collections.  
+### 📑 **Orders & Checkout**
+- Create orders  
+- Order items  
+- Payment simulation  
+- Order status workflow  
 
-\- Break large systems into smaller, maintainable modules.  
+### ⭐ **Reviews & Ratings**
+- Post reviews for purchased products  
+- Rating aggregation  
 
-\- Use environment variables — never hard-code secrets.  
+### ⚡ **Caching**
+- Redis caching for:  
+  - Product listing  
+  - Category tree  
+- Cache invalidation strategies  
 
-\- Write tests early and continuously.  
-
-\- Communicate efficiently with frontend teammates for aligned API formats.  
-
-\- Use logs + monitoring tools to understand production behavior.  
-
-\- System design thinking makes backend decisions faster and more scalable.
-
-
-
----
-
-
-
-\## 🤝 Collaboration — Key for Success
-
-
-
-\### 👥 \*\*Collaborate with:\*\*
-
-
-
-\#### \*\*Fellow ProDev Backend Learners\*\*
-
-\- Solve blockers together  
-
-\- Share debugging strategies  
-
-\- Review each other’s code  
-
-
-
-\#### \*\*ProDev Frontend Learners\*\*
-
-\- Provide API endpoints  
-
-\- Align on request/response structure  
-
-\- Pair on integration testing  
-
-
+### 📬 **Background Jobs**
+- Sending order confirmation emails  
+- Generating reports  
+- Daily stock sync jobs  
 
 ---
 
+## 📚 API Documentation
 
+Full API documentation is provided via:
 
-\## 💬 Where to Collaborate?
-
-
-
-\### \*\*Discord Channel: `#ProDevProjectNexus`\*\*
-
-Use this space to:
-
-\- Share your chosen project  
-
-\- Ask technical questions  
-
-\- Work with Frontend learners integrating your API  
-
-\- Stay updated with staff announcements  
-
-
+- **Swagger UI** (auto-generated)  
+- **Postman Collection** (exported inside `/docs`)  
 
 ---
 
+## 🧪 Testing
 
+Includes:
 
-\## 💡 ProDev Tip!
+- Unit tests for models  
+- API endpoint tests  
+- Integration tests (DB + API)  
+- Mocking external services  
 
-Use the first week to:
+Run tests:
 
-1\. Announce the backend project you’re building  
-
-2\. Identify Frontend learners working on the same project  
-
-3\. Begin syncing API requirements early  
-
-
-
----
-
-
-
-\## 📂 Repository Structure
-
-
-
-
-
+```bash
+pytest
