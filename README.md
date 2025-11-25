@@ -1,130 +1,109 @@
-# 🛒 Nexus Commerce — Backend API  
-Advanced E-Commerce Backend for Project Nexus (ProDev Backend Engineering)
+📘 Booking System API
 
-Nexus Commerce is a fully-featured **E-Commerce Backend API** built as the final project of the **ALX ProDev Backend Engineering Program**, demonstrating advanced backend skills, scalable architecture, and industry-standard patterns.
+A simple and clean back-end REST API for managing hotel room bookings (or general appointments).
+This project is built for the ALX Back-End Professional Foundations – Final Project.
 
-This project showcases real-world backend engineering practices including database modeling, REST API design, authentication, caching, background processing, documentation, and testing.
+🚀 Features
 
----
+User Registration & Login (JWT Authentication)
 
-## 🚀 Project Overview
+Hotel Room Management (CRUD)
 
-Nexus Commerce provides the backend infrastructure for a modern E-Commerce platform, including:
+Booking Management (Create, View, Cancel)
 
-- User authentication & authorization  
-- Product & category management  
-- Inventory & stock control  
-- Cart & checkout system  
-- Orders & order items  
-- Ratings & reviews  
-- Caching with Redis  
-- Optimized PostgreSQL database  
-- Background tasks (emails, reports, notifications)  
-- Comprehensive API documentation  
+Prevent double booking with server-side validation
 
-The project emphasizes **clean architecture**, **scalable database design**, and **professional workflows** expected from a production-grade backend system.
+Simple, clean REST API following best practices
 
----
+Uses a relational database (MySQL / PostgreSQL)
 
-## 🏗️ Tech Stack
+Seed data for quick testing
 
-| Layer | Technology |
-|------|------------|
-| Backend Framework | Django + Django REST Framework |
-| Database | PostgreSQL |
-| Caching | Redis |
-| Background Jobs | Celery + RabbitMQ |
-| Containerization | Docker & Docker Compose |
-| Authentication | JWT Authentication |
-| API Documentation | Swagger / Postman Collection |
-| Testing | Django Test Framework + Pytest |
+🏗️ Tech Stack
+Layer	Technology
+Backend Framework	Node.js + Express
+Database	MySQL (or PostgreSQL)
+ORM	Prisma ORM
+Authentication	JWT
+Environment Config	dotenv
+API Testing	Thunder Client / Postman
+📁 Project Structure
+project/
+│── src/
+│   ├── config/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── routes/
+│   ├── prisma/
+│   ├── utils/
+│   └── app.js
+│
+│── prisma/
+│   └── schema.prisma
+│
+├── .env
+├── package.json
+└── README.md
 
----
+🔧 Installation & Setup
+1️⃣ Clone the repo
+git clone https://github.com/<your-username>/booking-system.git
+cd booking-system
 
-## 🗄️ Database Design (ERD)
+2️⃣ Install dependencies
+npm install
 
-The Entity Relationship Diagram (ERD) models all major entities and relationships in the system, including:
+3️⃣ Configure .env
+DATABASE_URL="mysql://root:password@localhost:3306/booking_db"
+JWT_SECRET="supersecretkey"
+PORT=3000
 
-- Users  
-- Products  
-- Categories  
-- Product Variants  
-- Inventory  
-- Cart & Cart Items  
-- Orders & Order Items  
-- Reviews  
+4️⃣ Push database schema
+npx prisma migrate dev --name init
 
-📌 **Google Doc containing the ERD:**  
-👉 *[Insert your Google Doc link here]*
+5️⃣ Start the server
+npm start
 
----
+🧪 API Endpoints
+👤 Auth
+Method	Endpoint	Description
+POST	/api/auth/register	Register new user
+POST	/api/auth/login	Login & get JWT token
+🏨 Rooms
+Method	Endpoint	Description
+GET	/api/rooms	List all rooms
+POST	/api/rooms	Create a room (Admin)
+GET	/api/rooms/:id	Get room details
+PUT	/api/rooms/:id	Update room
+DELETE	/api/rooms/:id	Delete room
+📅 Bookings
+Method	Endpoint	Description
+POST	/api/bookings	Create a new booking
+GET	/api/bookings	View user bookings
+DELETE	/api/bookings/:id	Cancel a booking
+⚠️ Double Booking Prevention
 
-## 📦 Core Features
+The system prevents booking the same room in overlapping dates using server-side validation before creating a booking.
 
-### 🔐 **Authentication & User Management**
-- JWT-based login and registration  
-- Roles & permissions (Admin / Customer)  
-- Profile management  
+📝 Example Booking Request
+POST /api/bookings
+Content-Type: application/json
 
-### 🛍️ **Product & Category Management**
-- CRUD operations for products  
-- Hierarchical categories  
-- Product variants (size, color, etc.)  
-- Rich product metadata  
+{
+  "roomId": 1,
+  "startDate": "2025-01-10",
+  "endDate": "2025-01-15"
+}
 
-### 📦 **Inventory System**
-- Track stock levels  
-- Low-stock notifications  
-- Automatic stock reduction on order placement  
+🎯 Project Goals (For ALX Review)
 
-### 🛒 **Cart System**
-- Add/remove items  
-- Update quantities  
-- Cart merging  
-- Automatic price calculations  
+✔ Build a functional REST API
+✔ Database design & modeling
+✔ Implement authentication & validation
+✔ Clean architecture & documentation
+✔ Realistic real-world back-end project
 
-### 📑 **Orders & Checkout**
-- Create orders  
-- Order items  
-- Payment simulation  
-- Order status workflow  
+👨‍💻 Author
 
-### ⭐ **Reviews & Ratings**
-- Post reviews for purchased products  
-- Rating aggregation  
-
-### ⚡ **Caching**
-- Redis caching for:  
-  - Product listing  
-  - Category tree  
-- Cache invalidation strategies  
-
-### 📬 **Background Jobs**
-- Sending order confirmation emails  
-- Generating reports  
-- Daily stock sync jobs  
-
----
-
-## 📚 API Documentation
-
-Full API documentation is provided via:
-
-- **Swagger UI** (auto-generated)  
-- **Postman Collection** (exported inside `/docs`)  
-
----
-
-## 🧪 Testing
-
-Includes:
-
-- Unit tests for models  
-- API endpoint tests  
-- Integration tests (DB + API)  
-- Mocking external services  
-
-Run tests:
-
-```bash
-pytest
+Mostafa Khamis
+ALX Back-End Professional Foundations Student
