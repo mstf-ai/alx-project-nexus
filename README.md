@@ -111,3 +111,10 @@ Author
 
 Mostafa Khamis
 ALX Back-End Professional Foundations Student
+---
+The Booking System database consists of three main entities: Users, Rooms, and Bookings. 
+Users can create multiple bookings, and each booking is associated with a single room. 
+Rooms can have multiple bookings, but never overlapping dates. The schema is designed to 
+ensure data consistency through foreign keys and supports future scalability for features 
+like payments, room availability, and admin management.
+
