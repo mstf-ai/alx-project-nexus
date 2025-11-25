@@ -1,9 +1,9 @@
-📘 Booking System API
+Booking System API
 
 A simple and clean back-end REST API for managing hotel room bookings (or general appointments).
 This project is built for the ALX Back-End Professional Foundations – Final Project.
 
-🚀 Features
+Features
 
 User Registration & Login (JWT Authentication)
 
@@ -13,21 +13,22 @@ Booking Management (Create, View, Cancel)
 
 Prevent double booking with server-side validation
 
-Simple, clean REST API following best practices
+REST API following best practices
 
-Uses a relational database (MySQL / PostgreSQL)
+Uses MySQL or PostgreSQL
 
-Seed data for quick testing
+Seed data for testing
 
-🏗️ Tech Stack
+Tech Stack
 Layer	Technology
 Backend Framework	Node.js + Express
-Database	MySQL (or PostgreSQL)
+Database	MySQL or PostgreSQL
 ORM	Prisma ORM
 Authentication	JWT
 Environment Config	dotenv
 API Testing	Thunder Client / Postman
-📁 Project Structure
+---
+Project Structure
 project/
 │── src/
 │   ├── config/
@@ -44,48 +45,48 @@ project/
 ├── .env
 ├── package.json
 └── README.md
-
-🔧 Installation & Setup
-1️⃣ Clone the repo
+---
+Installation & Setup
+1. Clone the repo
 git clone https://github.com/<your-username>/booking-system.git
 cd booking-system
 
-2️⃣ Install dependencies
+2. Install dependencies
 npm install
 
-3️⃣ Configure .env
+3. Configure .env
 DATABASE_URL="mysql://root:password@localhost:3306/booking_db"
 JWT_SECRET="supersecretkey"
 PORT=3000
 
-4️⃣ Push database schema
+4. Push database schema
 npx prisma migrate dev --name init
 
-5️⃣ Start the server
+5. Start the server
 npm start
-
-🧪 API Endpoints
-👤 Auth
+---
+API Endpoints
+Auth
 Method	Endpoint	Description
 POST	/api/auth/register	Register new user
 POST	/api/auth/login	Login & get JWT token
-🏨 Rooms
+Rooms
 Method	Endpoint	Description
 GET	/api/rooms	List all rooms
 POST	/api/rooms	Create a room (Admin)
 GET	/api/rooms/:id	Get room details
 PUT	/api/rooms/:id	Update room
 DELETE	/api/rooms/:id	Delete room
-📅 Bookings
+Bookings
 Method	Endpoint	Description
 POST	/api/bookings	Create a new booking
 GET	/api/bookings	View user bookings
 DELETE	/api/bookings/:id	Cancel a booking
-⚠️ Double Booking Prevention
+Double Booking Prevention
 
-The system prevents booking the same room in overlapping dates using server-side validation before creating a booking.
-
-📝 Example Booking Request
+The system prevents booking a room during already reserved dates using server-side date validation before creating a booking.
+---
+Example Booking Request
 POST /api/bookings
 Content-Type: application/json
 
@@ -95,15 +96,19 @@ Content-Type: application/json
   "endDate": "2025-01-15"
 }
 
-🎯 Project Goals (For ALX Review)
+Project Goals (For ALX Review)
 
-✔ Build a functional REST API
-✔ Database design & modeling
-✔ Implement authentication & validation
-✔ Clean architecture & documentation
-✔ Realistic real-world back-end project
+Build a functional REST API
 
-👨‍💻 Author
+Database design & modeling
+
+Implement authentication & validation
+
+Clean architecture & documentation
+
+Realistic real-world back-end project
+
+Author
 
 Mostafa Khamis
 ALX Back-End Professional Foundations Student
